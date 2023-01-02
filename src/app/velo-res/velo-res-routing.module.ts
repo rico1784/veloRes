@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 import {VeloListComponent} from "./components/velo-list/velo-list.component";
+import {LeafletMapComponent} from "./components/leaflet-map/leaflet-map.component";
+
 
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent},
-  { path: 'velo', component: VeloListComponent}
+  { path: '', component: VeloListComponent},
+  { path: 'map', component:LeafletMapComponent },
+
 ];
 
 @NgModule({

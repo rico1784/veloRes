@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {ApiGetService} from "../../../service/api-get.service";
+import ApiUser from "../../../../interfaces/apiUser";
 
 @Component({
   selector: 'app-velo-list',
   templateUrl: './velo-list.component.html',
   styleUrls: ['./velo-list.component.scss']
 })
-export class VeloListComponent {
-  number!: number;
-  contract_name!: string;
-  name!: string;
-  address!: string;
-  banking!: boolean;
-  bonus!: boolean;
-  bike_stands!: number;
-  available_bike_stands!: number;
-  available_bikes!: number;
-  status!: string;
-  last_update!: number;
+export class VeloListComponent implements OnInit{
+  stationList: Observable<ApiUser[]> | null = null;
+
+  constructor(private apiGet: ApiGetService) {}
 
 
-  ngOnInit() {
-    this.contract_name = "test name"
-    this.name = "2010 - CONFLUENCE / DARSE"
-    this.address = "ANGLE ALLEE ANDRE MURE ET QUAI ANTOINE RIBOUD"
+  ngOnInit(): void {
 
+  this.stationList = this.apiGet.getStationList()
+  }
+
+}
+export class MyService {
+  listArray!: ApiUser[]
+
+  forOfLoop() {
+    for (const element of this.listArray ) {
+      console.log(element);
+    }
+    return this.listArray
   }
 }

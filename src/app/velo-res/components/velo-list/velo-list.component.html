@@ -1,3 +1,7 @@
-<h2>{{contract_name}}</h2>
-<p>{{name}}</p>
-<p>{{address}}</p>
+<app-leaflet-map></app-leaflet-map>
+<ul>
+  <li *ngFor="let station of stationList | async">
+    {{ station.position.lat }}
+  </li>
+</ul>
+

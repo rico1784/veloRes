@@ -5,11 +5,11 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 
 
-
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   exports: [
     MatToolbarModule,

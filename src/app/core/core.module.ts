@@ -5,6 +5,9 @@ import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
 import { FooterComponent } from './components/footer/footer.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
+
 
 
 
@@ -20,6 +23,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     SharedModule,
     RouterModule,
     MatGridListModule,
+    HttpClientModule
 
 
   ],
