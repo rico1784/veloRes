@@ -11,6 +11,7 @@ export class ApiGetService {
   private stations: Observable<ApiUser[]> | null = null;
   constructor(private http: HttpClient) { }
 
+
   getStationList(): Observable<ApiUser[]>  {
   if(!this.stations){
     console.log('chargement')

@@ -1,7 +1,8 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../../service/marker.service';
 import ApiUser from "../../../../interfaces/apiUser";
+import {ApiGetService} from "../../../service/api-get.service";
 
 
 
@@ -10,6 +11,7 @@ import ApiUser from "../../../../interfaces/apiUser";
   templateUrl: './leaflet-map.component.html',
   styleUrls: ['./leaflet-map.component.scss']
 })
+
 export class LeafletMapComponent implements AfterViewInit{
 
 
@@ -50,3 +52,15 @@ export class LeafletMapComponent implements AfterViewInit{
 
 }
 
+export class statutvelo implements OnInit {
+
+  listVelo!: ApiUser[]
+
+  constructor(private apiGetService: ApiGetService) {
+  }
+
+  ngOnInit(): void {
+  this.listVelo = this.apiGetService.getStationList();
+
+  }
+}

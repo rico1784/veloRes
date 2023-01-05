@@ -15,18 +15,8 @@ export class VeloListComponent implements OnInit{
 
 
   ngOnInit(): void {
-
   this.stationList = this.apiGet.getStationList()
   }
 
 }
-export class MyService {
-  listArray!: ApiUser[]
 
-  forOfLoop() {
-    for (const element of this.listArray ) {
-      console.log(element);
-    }
-    return this.listArray
-  }
-}
