@@ -52,15 +52,15 @@ export class LeafletMapComponent implements AfterViewInit{
 
 }
 
-export class statutvelo implements OnInit {
-
-  listVelo!: ApiUser[]
-
-  constructor(private apiGetService: ApiGetService) {
-  }
-
-  ngOnInit(): void {
-  this.listVelo = this.apiGetService.getStationList();
-
-  }
-}
+// export class statutvelo implements OnInit {
+//
+//   listVelo!: ApiUser[]
+//
+//   constructor(private apiGetService: ApiGetService) {
+//   }
+//
+//   ngOnInit(): void {
+//   this.listVelo = this.apiGetService.getStationList();
+//
+//   }
+// }
