@@ -14,6 +14,8 @@ import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.compon
   imports: [
     CommonModule,
     VeloResRoutingModule
-  ]
+  ],
+
+
 })
 export class VeloResModule { }

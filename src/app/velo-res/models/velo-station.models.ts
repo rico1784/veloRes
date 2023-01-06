@@ -1,13 +1,17 @@
-export class Station{
+import {Position} from "../../core/models/position";
 
-  constructor(public number: number,
-              public contract_name: string,
-              public name: string,
-              public address: string,
-              public banking: boolean,
-              public bonus: boolean,
-              public bike_stands:number,
-              public available_bike_stands: number,
-              public status: string,
-              public last_update: number ){}
+export class Station{
+  number!: number;
+  contract_name!: string;
+  name!: string;
+  address!: string;
+  position!: Position[];
+  banking!: boolean;
+  bonus!: boolean;
+  bike_stands!: number;
+  available_bike_stands!: number;
+  available_bikes!: number;
+  status!: string;
+  last_update!: number;
 }
+

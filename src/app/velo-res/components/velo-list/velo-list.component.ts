@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, Observer} from "rxjs";
 import {ApiGetService} from "../../../service/api-get.service";
 import ApiUser from "../../../../interfaces/apiUser";
+
 
 @Component({
   selector: 'app-velo-list',
@@ -15,8 +16,12 @@ export class VeloListComponent implements OnInit{
 
 
   ngOnInit(): void {
-  this.stationList = this.apiGet.getStationList()
-  }
+    this.stationList = this.apiGet.getStationList();
+    console.log(this.stationList);
+
+
+    }
+
 
 }
 
