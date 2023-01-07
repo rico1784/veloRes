@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
+import {ApiGetService} from "./service/api-get.service";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-
+    ApiGetService
 
   ],
   bootstrap: [AppComponent],

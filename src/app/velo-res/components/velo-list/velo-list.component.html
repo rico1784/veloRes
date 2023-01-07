@@ -1,5 +1,6 @@
 <app-leaflet-map></app-leaflet-map>
 <ul>
+  <li>
   <li *ngFor="let station of stationList | async">
     {{ station.position.lat }} - {{station.position.lng}}
   </li>

@@ -6,10 +6,12 @@ import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.compon
 
 
 
+
 @NgModule({
   declarations: [
     VeloListComponent,
     LeafletMapComponent,
+
   ],
   imports: [
     CommonModule,

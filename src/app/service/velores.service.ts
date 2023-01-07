@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 })
 export class VeloresService {
   stationList!: Observable<ApiUser[]>;
+  public monTableau: any[] = [];
   constructor(private http: HttpClient) { }
 
   getStationList(): Observable<ApiUser[]> {
@@ -16,7 +17,18 @@ export class VeloresService {
     return this.stationList;
   }
 
+  getMonTableau():any {
+    this.getStationList().subscribe(data => {
+      // data is the array of ApiUser objects
+      const Tableau = [];
+      for (const element of data) {
+        let x = element.position.lat
+        let y = element.position.lng
+        Tableau.push('L.marker(['+x+', '+y+']).bindPopup(\'This is Littleton, CO. \')');
+
+      }
+      this.monTableau = Tableau;
+    });
+  }
+
 }
-
-
-
