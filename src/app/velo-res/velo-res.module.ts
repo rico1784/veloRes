@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VeloResRoutingModule } from './velo-res-routing.module';
 import { VeloListComponent } from './components/velo-list/velo-list.component';
 import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.component';
+import { StationListComponent } from './components/station-list/station-list.component';
 
 
 
@@ -11,6 +12,7 @@ import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.compon
   declarations: [
     VeloListComponent,
     LeafletMapComponent,
+    StationListComponent,
 
   ],
   imports: [

@@ -1,34 +1,44 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import ApiUser from "../../interfaces/apiUser";
 import {Observable} from "rxjs";
+import ApiUser from "../../interfaces/apiUser";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeloresService {
-  stationList!: Observable<ApiUser[]>;
-  public monTableau: any[] = [];
+  private baseUrl = 'http://api.jcdecaux.com/vls/v1/stations';
+  private apiKey = '349af4632e93437ca292b20cd7d606c7e30fa433';
+  stations!: any[];
+  private lat!:number
+  private lng!:number
+  private monTableau!: any[];
+
+
   constructor(private http: HttpClient) { }
 
-  getStationList(): Observable<ApiUser[]> {
-    this.stationList = this.http.get<ApiUser[]>(`http://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=349af4632e93437ca292b20cd7d606c7e30fa433`);
-    return this.stationList;
+  getStations(): Observable<ApiUser[]> {
+    return this.http.get<ApiUser[]>(`${this.baseUrl}?contract=Lyon&apiKey=${this.apiKey}`);
   }
 
-  getMonTableau():any {
-    this.getStationList().subscribe(data => {
-      // data is the array of ApiUser objects
-      const Tableau = [];
-      for (const element of data) {
-        let x = element.position.lat
-        let y = element.position.lng
-        Tableau.push('L.marker(['+x+', '+y+']).bindPopup(\'This is Littleton, CO. \')');
-
-      }
-      this.monTableau = Tableau;
+  getlist(){
+    this.getStations().subscribe(stations => {
+    const monTableau: any[] = [];
+      this.stations = stations;
+      this.stations.forEach(station => {
+        console.log(station);
+        this.lat = station.position.lat
+        this.lng = station.position.lng
+        monTableau.push('L.marker(['+this.lat+', '+this.lng+']).bindPopup(\'This is Littleton, CO.\')');
+        console.log(monTableau)
+      })
+      console.log(monTableau);
     });
+    return this.monTableau;
   }
+
 
 }
+
+

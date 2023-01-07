@@ -1,7 +1,8 @@
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../../service/marker.service';
-import {ApiGetService} from "../../../service/api-get.service";
+import {VeloresService} from "../../../service/velores.service";
+import {VeloListComponent} from "../velo-list/velo-list.component";
 
 
 
@@ -15,15 +16,23 @@ import {ApiGetService} from "../../../service/api-get.service";
 
 export class LeafletMapComponent implements AfterViewInit{
   private map : L.Map | undefined;
+  public veloListComponent = VeloListComponent
 
 
-  constructor(private markerService: MarkerService, private ApiService: ApiGetService) {
+
+
+  constructor(private markerService: MarkerService, private veloresService: VeloresService) {
+
+
   }
 
   ngAfterViewInit(): void {
+
+
     let x: number = 45.743317;
     let y: number = 4.815747;
     let z: number = 15;
+
 
     this.map = L.map('map',
       {
